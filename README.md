@@ -29,7 +29,7 @@ The most common choice of receiver is probably the RTL-SDR. There are multiple o
 ### Installation
 Clone ```apitran``` to your directory of choice. 
 
-## Testing ```apitran```
+### Testing ```apitran```
 To test ```apitran``` once installed, simply run:
 
 ```
@@ -39,4 +39,13 @@ or
 ```
 apitran --test
 ```
-```apitran``` will go through each of its functions and ensure they are working as expected. If a function is not working as expected, it will report to ```stdout```. 
+```apitran``` will go through each of its functions and ensure they are working as expected. If a function is not working as expected, it will report to ```stdout```. If you receive no output, ```apitran``` is fully functional. 
+
+## Using ```apitran```
+Here, we will go through all of the functions available to ```apitran```. In general, these flags can be stacked.
+
+### ```-d --decode input_filename```
+Use this flag to decode a .wav recording of an APT signal. The .wav can be any number of channels, at any samplerate—the software will do any necessary conversions. Will output to ```output.png``` unless output filename is specified using ```-o```. 
+
+### ```-o --output output_filename```
+Given a flag which creates output, this flag can be used to override the default output location. 
