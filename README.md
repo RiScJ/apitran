@@ -26,6 +26,15 @@ The most common choice of receiver is probably the RTL-SDR. There are multiple o
 
 * ```sox```
 
+And Python modules:
+
+* ```PIL```
+* ```sys```
+* ```numpy```
+* ```scipy```
+* ```subprocess```
+
+
 ### Installation
 Clone ```apitran``` to your directory of choice. 
 
