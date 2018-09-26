@@ -58,3 +58,8 @@ Use this flag to decode a .wav recording of an APT signal. The .wav can be any n
 
 ### ```-o --output output_filename```
 Given a flag which creates output, this flag can be used to override the default output location. 
+
+## Examples
+
+### Decoded from a 2-channel, 48000 Hz .wav
+![alt text](Examples/ex_2ch_48000.png)
