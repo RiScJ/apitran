@@ -42,11 +42,11 @@ Clone ```apitran``` to your directory of choice.
 To test ```apitran``` once installed, simply run:
 
 ```
-apitran -t
+./apitran -t
 ```
 or
 ```
-apitran --test
+./apitran --test
 ```
 ```apitran``` will go through each of its functions and ensure they are working as expected. If a function is not working as expected, it will report to ```stdout```. If you receive no output, ```apitran``` is fully functional. 
 
