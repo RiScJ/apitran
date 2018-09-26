@@ -33,6 +33,7 @@ And Python modules:
 * ```numpy```
 * ```scipy```
 * ```subprocess```
+* ```argparse```
 
 
 ### Installation
@@ -54,7 +55,12 @@ or
 Here, we will go through all of the functions available to ```apitran```. In general, these flags can be stacked.
 
 ### ```-d --decode input_filename```
-Use this flag to decode a .wav recording of an APT signal. The .wav can be any number of channels, at any samplerate—the software will do any necessary conversions. Will output to ```output.png``` unless output filename is specified using ```-o```. 
+Use this flag to decode a .wav recording of an APT signal. The .wav can be any number of channels, at any samplerate—the software will do any necessary conversions. The decoded image will be displayed using your default image viewer. Unless output filename is specified using ```-o```, this output will not be saved automatically. 
 
 ### ```-o --output output_filename```
 Given a flag which creates output, this flag can be used to override the default output location. 
+
+## Examples
+
+### Decoded from a 2-channel, 48000 Hz .wav
+![alt text](Examples/ex_2ch_48000.png)
