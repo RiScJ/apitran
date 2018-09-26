@@ -33,6 +33,7 @@ And Python modules:
 * ```numpy```
 * ```scipy```
 * ```subprocess```
+* ```argparse```
 
 
 ### Installation
