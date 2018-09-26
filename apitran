@@ -6,10 +6,6 @@ import scipy.signal
 import sys
 import PIL
 import subprocess
-
-import gc
-gc.collect()
-
 import argparse
 
 class APT_signal(object):
