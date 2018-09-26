@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import numpy
 import scipy.io.wavfile
 import scipy.signal
@@ -7,6 +9,8 @@ import subprocess
 
 import gc
 gc.collect()
+
+import argparse
 
 class APT_signal(object):
     # The audio should get resampled to 20.8 kHz if not there natively
@@ -23,7 +27,12 @@ class APT_signal(object):
                 mono = False
                 print("Supplied signal has {}".format(self.signal.shape[1]) + " channels, downmixing to mono...")
                 wavIN_MONO = wavIN[:-4] + '_MONO.wav'
-                subprocess.call(["sox", wavIN, wavIN_MONO, "remix", "1,2"])
+                # Create the sox code for channels to remix
+                channels = "1"
+                for i in range(2,self.signal.shape[1]):
+                    channels = channels + "," + str(i)
+                # Call sox to remix
+                subprocess.call(["sox", wavIN, wavIN_MONO, "remix", channels])
                 (rate, self.signal) = scipy.io.wavfile.read(wavIN_MONO)
                 print("Done.\n")
 
@@ -133,11 +142,46 @@ class APT_signal(object):
         return numpy.array(matrix)
 
 if __name__ == '__main__':
-    apt = APT_signal(sys.argv[1])
+    # Construct the command parser
+    parser = argparse.ArgumentParser()
+    # Add test option
+    parser.add_argument(
+        "-t", "--test",
+        help="test program functionality",
+        action="store_true",
+        dest="do_test"
+    )
+    # Add decode option
+    parser.add_argument(
+        "-d", "--decode",
+        help="decode a .wav APT recording",
+        action="store",
+        default=None,
+        dest="decode_file"
+    )
+    # Add output option
+    parser.add_argument(
+        "-o", "--output",
+        help="specify output location",
+        action="store",
+        default=None,
+        dest="out_file"
+    )
+    # Store arguments to variable
+    parser.parse_args()
+    arguments = parser.parse_args()
 
-    if len(sys.argv) > 2:
-        outfile = sys.argv[2]
+
+    # Here we check for the main flag options, in order of precedence
+
+    # -t, --test
+    if arguments.do_test:
+        print("Testing...")
+    # -d, --decode
+    elif arguments.decode_file != None:
+        apt = APT_signal(arguments.decode_file)
+        outfile = arguments.out_file
+        apt.decode(outfile)
+    # No flags3
     else:
-        outfile = None
-
-    apt.decode(outfile)
+        print("No arguments passed.")
