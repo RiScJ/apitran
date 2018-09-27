@@ -64,3 +64,6 @@ Given a flag which creates output, this flag can be used to override the default
 
 ### Decoded from a 2-channel, 48000 Hz .wav
 ![alt text](Examples/ex_2ch_48000.png)
+
+### Decoded from a 1-channel, 11025 Hz .wav
+![alt text](Examples/ex_1ch_11025.png)
