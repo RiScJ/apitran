@@ -172,12 +172,12 @@ if __name__ == '__main__':
 
     # -t, --test
     if arguments.do_test:
-        print("Testing...")
+        print("This doesn't actually do anything yet. Woo.")
     # -d, --decode
     elif arguments.decode_file != None:
         apt = APT_signal(arguments.decode_file)
         outfile = arguments.out_file
         apt.decode(outfile)
-    # No flags3
+    # No flags
     else:
         print("No arguments passed.")
