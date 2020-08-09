@@ -1,20 +1,29 @@
-QT += quick
+QT += core gui widgets multimedia
 
 CONFIG += c++11
 
 DEFINES += QT_DEPRECATED_WARNINGS
 
-INCLUDEPATH += \
-        $$PWD/../inc/ \
-        $$PWD/../src/ \
-        $$PWD/../res/ \
+QMAKE_CXXFLAGS +=
 
-HEADERS += 
+INCLUDEPATH += \
+		$$PWD/../inc/ \
+		$$PWD/../src/ \
+		$$PWD/../res/ \
+
+HEADERS +=  \
+	../inc/canvas.hpp \
+	../inc/main_window.hpp \
 
 SOURCES += \
-    ../src/main.cpp 
+	../src/canvas.cpp \
+	../src/main.cpp \
+	../src/main_window.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += \
+	icons.qrc
+
+LIBS += -lfftw3
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
